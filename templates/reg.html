@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-5"></div>
+<div class="col-7">
+<h4>Данные об участнике опроса</h4>
+<form action="{{ url_for('reg_process') }}" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-check">
+        {{ form.sex.label }}
+        {{ form.sex }}
+    </div>
+    <div class="form-check">
+        {{ form.age.label }}
+        {{ form.age }}
+    </div>
+    <div class="form-check">
+        {{ form.education.label }}
+        {{ form.education }}
+    </div>
+    <div class="form-check">
+        {{ form.marriage_status.label }}
+        {{ form.marriage_status }}
+    </div>
+    <div class="form-check">
+        {{ form.submit }}
+    </div>
+</form>
+</div>
+{% endblock %}

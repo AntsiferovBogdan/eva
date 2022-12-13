@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-3"></div>
+<div class="col-8">
+<h4>Анкета на тему "Отношение московской молодежи к идеям феминизма"</h4>
+<form action="{{ url_for('quest_process') }}" method="post">
+    {% for k in data %}
+        {{ k.question }}
+        {% for i in k.variants %}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name={{ k.id }}{{ i[0] }} id={{ k.id }}{{ i[0] }}>
+                <label class="form-check-label" for={{ k.id }}{{ i[0] }}>
+                {{ i }}
+                </label>
+            </div>
+        {% endfor %}
+        <br>
+    {% endfor %}
+    <button type="submit" class='btn btn-success'>Отправить</button>
+</form>
+<br>
+</div>
+{% endblock %}
